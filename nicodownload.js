@@ -12,7 +12,7 @@
 
 	const videoID = matched_nicovideo[1];
 
-	alert(videoID);
+	console.log(videoID);
 
 	fetch("https://flapi.nicovideo.jp/api/getflv?v=" + videoID, {credentials: "include"})
 		.then(function(response){return response.text();})
@@ -25,7 +25,7 @@
 			}
 
 			const video_url = decodeParcent(matched_video_url[0]);
-			alert(video_url);
+			console.log(video_url);
 			window.open(video_url);
 		});
 })();
