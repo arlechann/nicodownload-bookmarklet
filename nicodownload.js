@@ -1,9 +1,6 @@
 (function(){
 	const url = location.href;
 	const pattern_nicovideo = /^https?:\/\/www\.nicovideo\.jp\/watch\/(sm[1-9][0-9]*)/
-	const decodeParcent = function(str){
-		return str.replace(/%253A/g, ":").replace(/%252F/g, "/").replace(/%253F/g,"?").replace(/%253D/g,"="); // %25 -> %
-	};
 
 	const matched_nicovideo = pattern_nicovideo.exec(url);
 	if(matched_nicovideo === null){
@@ -24,7 +21,7 @@
 				return;
 			}
 
-			const video_url = decodeParcent(matched_video_url[0]);
+			const video_url = decodeURIComponent(matched_video_url[0]);
 			console.log(video_url);
 			window.open(video_url);
 		});
